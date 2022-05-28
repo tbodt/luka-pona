@@ -1,0 +1,16 @@
+<a class="brand" href="/">{% include ponala.svg %} <span>{{ site.title }}</span></a>
+<ul class="navbar">
+    {% for toki in site.data.toki %}
+        {% assign toki_ni = page.path | split: "/" | first %}
+        {% if toki_ni == toki[0] %}
+            {% continue %}
+        {% endif %}
+        {% assign nimi_lipu_pi_toki_ala = page.path | split: "/" | slice: 1, 1000 %}
+        {% assign lipu_pi_toki_ante = toki[0] | split: "!!!" | concat: nimi_lipu_pi_toki_ala | join: "/" %}
+        {% for lipu_ante in site.pages %}
+            {% if lipu_ante.path == lipu_pi_toki_ante %}
+                <li><a href="{{ lipu_ante.url }}">{{ toki[1].nimi }}</a></li>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</ul>

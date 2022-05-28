@@ -1,0 +1,9 @@
+.jutu {
+    position: relative;
+    padding-bottom: 56.25%;
+}
+.jutu iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
